@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <data>
+
+        <variable
+            name="counter"
+            type="com.mvvm.example.viewmodel.OrderViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -22,6 +29,7 @@
             android:id="@+id/americanoDeleteButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="@{() -> counter.delAmericano()}"
             android:text="-"
             android:textSize="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -33,6 +41,7 @@
             android:id="@+id/americanoCountText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@{counter.americanoQty}"
             android:textSize="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toRightOf="@+id/americanoDeleteButton"
@@ -43,6 +52,7 @@
             android:id="@+id/americanoAddButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="@{() -> counter.addAmericano()}"
             android:text="+"
             android:textSize="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -65,6 +75,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="30dp"
+            android:text="@{counter.totalPrice}"
             android:textSize="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
