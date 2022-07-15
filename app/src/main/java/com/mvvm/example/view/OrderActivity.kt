@@ -4,11 +4,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import androidx.lifecycle.ViewModelProvider
 import com.mvvm.example.R
 import com.mvvm.example.viewmodel.OrderViewModel
 
 class OrderActivity : AppCompatActivity() {
-    private val viewModel: OrderViewModel = OrderViewModel()
+    private lateinit var viewModel: OrderViewModel
     private lateinit var addButton: Button
     private lateinit var delButton: Button
     private lateinit var americanoCountText: TextView
@@ -17,6 +18,7 @@ class OrderActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_order)
+        viewModel = ViewModelProvider(this).get(OrderViewModel::class.java)
         addButton = findViewById(R.id.americanoAddButton)
         delButton = findViewById(R.id.americanoDeleteButton)
         americanoCountText = findViewById<Button>(R.id.americanoCountText)
