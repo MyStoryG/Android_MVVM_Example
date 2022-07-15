@@ -18,7 +18,7 @@ class OrderViewModel : ViewModel() {
         updateTotalPriceSubtraction(menuModel.price)
     }
 
-    open fun addAmericano() {
+    fun addAmericano() {
         menuModel.add()
         americanoQty.value = menuModel.quantity.toString()
         updateTotalPriceAddition(menuModel.price)
